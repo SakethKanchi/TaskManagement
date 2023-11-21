@@ -50,7 +50,7 @@ function CreateContent() {
     };
 
     try {
-      const res = await axios.post("/api/tasks", task);
+      const res = await axios.post("https://task-management-sigma-seven.vercel.app/api/tasks", task);
 
       if (res.data.error) {
         toast.error(res.data.error);

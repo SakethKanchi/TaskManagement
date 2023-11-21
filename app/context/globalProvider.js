@@ -35,7 +35,7 @@ export const GlobalProvider = ({ children }) => {
     const allTasks = async () => {
         setIsLoading(true);
         try {
-            const res = await axios.get("/api/tasks");
+            const res = await axios.get("https://task-management-sigma-seven.vercel.app/api/tasks");
 
             const sorted = res.data.sort((a, b) => {
                 let res = new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -52,7 +52,7 @@ export const GlobalProvider = ({ children }) => {
 
     const deleteTask = async (id) => {
         try {
-            const res = await axios.delete(`/api/tasks/${id}`);
+            const res = await axios.delete(`https://task-management-sigma-seven.vercel.app/api/tasks/${id}`);
             toast.success("Task deleted successfully");
 
             allTasks();
@@ -64,7 +64,7 @@ export const GlobalProvider = ({ children }) => {
 
     const updateTask = async (task) => {
         try {
-            const res = await axios.put(`/api/tasks`, task);
+            const res = await axios.put(`https://task-management-sigma-seven.vercel.app/api/tasks`, task);
 
             toast.success("Task updated successfully");
 
